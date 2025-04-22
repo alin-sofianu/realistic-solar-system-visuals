@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes sun {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: brightness(115%);
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.75;
+    filter: brightness(100%);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: brightness(115%);
+  }
+}
+
+.animate-sun {
+  animation: sun 4s ease-in-out infinite;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@keyframes revolve {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+.moon {
+  --x-amplitude: 50px;
+  --y-amplitude: 40px;
+  --x: calc(cos(var(--angle)) * var(--x-amplitude));
+  --y: calc(sin(var(--angle)) * var(--y-amplitude));
+  translate: var(--x) var(--y);
+  animation: revolve 6s linear infinite;
+}
+.moon-wrapper {
+  grid-area: 1 / 1;
+  padding: 10px;
+  border: 4px dashed #f4ead5;
+  border-radius: 50%;
+  background-color: #215a6d;
+}

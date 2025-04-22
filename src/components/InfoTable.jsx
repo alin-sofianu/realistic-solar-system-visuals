@@ -3,7 +3,7 @@ import React from "react";
 function InfoTable() {
   return (
     <div>
-      <div className="">
+      <div className="top-14 left-14">
         <table className="min-w-full bg-gray-800 text-white">
           <thead>
             <tr className="bg-gray-900">

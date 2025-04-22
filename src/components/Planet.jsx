@@ -4,19 +4,23 @@ function Planet({
   alt = "planet image",
   className = "",
   spinDuration = 20,
+  orbitDuration,
   planetSize,
+  isPlaying,
 }) {
   return (
     <div className={`${className} z-50 `}>
       <img
-        className={`rounded-full object-cover`}
+        className={`rounded-full object-cover animate-spin`}
         style={{
           width: `${10 * planetSize}px`,
           height: `${10 * planetSize}px`,
-          // animationDuration: `${spinDuration}s`,
+          animationDirection: "reverse",
+          animationDuration: `${spinDuration}s`,
+          animationPlayState: isPlaying ? "running" : "paused",
         }}
         src={image}
-        alt={alt}
+        alt={`Planet ${image}`}
       />
     </div>
   );

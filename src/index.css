@@ -19,50 +19,20 @@
   0% {
     transform: scale(1);
     opacity: 1;
-    filter: brightness(115%);
+    filter: brightness(120%);
   }
   50% {
-    transform: scale(1.05);
-    opacity: 0.75;
+    transform: scale(1.1);
+    opacity: 0.7;
     filter: brightness(100%);
   }
   100% {
     transform: scale(1);
     opacity: 1;
-    filter: brightness(115%);
+    filter: brightness(120%);
   }
 }
 
 .animate-sun {
   animation: sun 4s ease-in-out infinite;
-}
-
-@property --angle {
-  syntax: "<angle>";
-  inherits: true;
-  initial-value: 0deg;
-}
-
-@keyframes revolve {
-  from {
-    --angle: 0deg;
-  }
-  to {
-    --angle: 360deg;
-  }
-}
-.moon {
-  --x-amplitude: 50px;
-  --y-amplitude: 40px;
-  --x: calc(cos(var(--angle)) * var(--x-amplitude));
-  --y: calc(sin(var(--angle)) * var(--y-amplitude));
-  translate: var(--x) var(--y);
-  animation: revolve 6s linear infinite;
-}
-.moon-wrapper {
-  grid-area: 1 / 1;
-  padding: 10px;
-  border: 4px dashed #f4ead5;
-  border-radius: 50%;
-  background-color: #215a6d;
 }

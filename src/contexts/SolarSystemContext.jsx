@@ -4,6 +4,7 @@ const SolarSystemContext = createContext();
 
 export const SolarSystemProvider = ({ children }) => {
   const [speedFactor, setSpeedFactor] = useState(1);
+  const [zoomFactor, setZoomFactor] = useState(1);
   const [isPlaying, setIsPlaying] = useState(true);
 
   const togglePlay = () => setIsPlaying((prev) => !prev);
@@ -14,6 +15,8 @@ export const SolarSystemProvider = ({ children }) => {
     isPlaying,
     setIsPlaying,
     togglePlay,
+    zoomFactor,
+    setZoomFactor,
   };
 
   return (

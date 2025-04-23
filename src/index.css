@@ -36,16 +36,3 @@
 .animate-sun {
   animation: sun 4s ease-in-out infinite;
 }
-
-/* @keyframes spin-left {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-180deg);
-  }
-}
-
-.spin-left {
-  animation: spin-left 20s linear infinite; 
-} */

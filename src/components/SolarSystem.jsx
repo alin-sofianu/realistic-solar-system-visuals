@@ -155,7 +155,7 @@ function SolarSystem() {
   return (
     <div
       id="bg"
-      className="relative z-auto w-full h-[100vh] overflow-hidden bg-black flex items-center justify-center"
+      className="animate relative z-auto w-full h-[100vh] overflow-hidden bg-black flex items-center justify-center"
     >
       <div className="relative w-full h-full">
         {/* Sun at the center */}
@@ -179,17 +179,45 @@ function SolarSystem() {
             transformOrigin: "center",
           }}
         >
+          {/* Planets */}
           {Object.entries(PLANETS_CONFIG).map(([name, config]) => (
-            <Planet
+            <div
               key={name}
-              image={config.image}
-              orbitSize={config.orbitSize}
-              spinDuration={config.spinDuration}
-              orbitDuration={config.orbitDuration}
-              planetSize={config.planetSize}
-              isPlaying={isPlaying}
-              speedFactor={speedFactor}
-            />
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              style={{
+                height: config.orbitSize,
+                width: config.orbitSize,
+                border: "1px solid rgba(234, 227, 181, 0.2)",
+                borderRadius: "50%",
+              }}
+            >
+              <div
+                className="absolute animate-spin"
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  animationDuration: `${config.orbitDuration / speedFactor}s`,
+                  animationPlayState: isPlaying ? "running" : "paused",
+                }}
+              >
+                <div
+                  className="absolute"
+                  style={{
+                    right: "0",
+                    top: "50%",
+                    transform: "translateX(50%)",
+                  }}
+                >
+                  <Planet
+                    image={config.image}
+                    spinDuration={config.spinDuration}
+                    orbitDuration={config.orbit}
+                    planetSize={config.planetSize}
+                    isPlaying={isPlaying}
+                  />
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
